@@ -1,0 +1,111 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/listings">Listings</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if (user) { %>
+      <li class="nav-item active">
+        <a class="nav-link" href="/games">Games</a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listings/new">Add Listing</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Genres
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/listings/genre/Adventure">Adventure</a>
+          <a class="dropdown-item" href="/listings/genre/Card & Board Game">Card & Board Game</a>
+          <a class="dropdown-item" href="/listings/genre/Fighting">Fighting</a>
+          <a class="dropdown-item" href="/listings/genre/Indie">Indie</a>
+          <a class="dropdown-item" href="/listings/genre/MOBA">MOBA</a>
+          <a class="dropdown-item" href="/listings/genre/Platform">Platform</a>
+          <a class="dropdown-item" href="/listings/genre/Racing">Racing</a>
+          <a class="dropdown-item" href="/listings/genre/Real Time Strategy (RTS)">Real Time Strategy (RTS)</a>
+          <a class="dropdown-item" href="/listings/genre/Role-playing (RPG)">Role-playing (RPG)</a>
+          <a class="dropdown-item" href="/listings/genre/Shooter">Shooter</a>
+          <a class="dropdown-item" href="/listings/genre/Simulator">Simulator</a>
+          <a class="dropdown-item" href="/listings/genre/Sport">Sport</a>
+          <a class="dropdown-item" href="/listings/genre/Strategy">Strategy</a>
+        </div>
+      <li class="nav-item">
+        <a class="nav-link text-danger" href="/logout"
+          >Log Out
+          <b class="text-primary text-capitalize"><%= user.username %></b>
+        </a>
+      </li>
+
+
+      <% } else{%>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Sign Up</a>
+      </li>
+
+      <% } %>
+
+      
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 col-lg-6 m-auto text-center">
+      <% if(errorMessage && errorMessage.length > 0){%>
+
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= errorMessage %>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <%} %> <% if(successMessage && successMessage.length > 0){%>
+
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= successMessage %>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <%} %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+<%- include('partials/header') %>
+
+<div class="row">
+  <div class="col-6 m-auto">
+    <h1>Add New Listing</h1>
+
+    <form action="/listings" method="POST">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          autofocus
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" name="description" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" name="date" class="form-control" required />
+      </div>  
+
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <select name="genre" id="genre" class="form-control" required>
+          <option value="" selected disabled>~Choose Below~</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Card & Board Game">Card & Board Game</option>
+          <option value="Fighting">Fighting</option>
+          <option value="Indie">Indie</option>
+          <option value="MOBA">MOBA</option>
+          <option value="Platform">Platform</option>
+          <option value="Racing">Racing</option>
+          <option value="Real Time Strategy (RTS)">Real Time Strategy (RTS)</option>
+          <option value="Role-playing (RPG)">Role-playing (RPG)</option>
+          <option value="Shooter">Shooter</option>
+          <option value="Simulator">Simulator</option>
+          <option value="Sport">Sport</option>
+          <option value="Strategy">Strategy</option>
+        </select>
+      </div>  
+
+      <div class="form-group">
+        <label for="gameSelected">Game</label>
+        <select name="gameSelected" id="gameSelected" class="form-control" required>
+          <option value="" selected disabled>~Choose Below~</option>
+          <option value="League of Legends">League of Legends</option>
+          <option value="Destiny 2">Destiny 2</option>
+          <option value="Pokemon go">Pokemon go</option>
+          <option value="World of Warcraft">World of Warcraft</option>
+          <option value="Dota 2">Dota 2</option>
+        </select>
+      </div>  
+
+      <div class="form-group">
+        <label for="platform">Platform</label>
+        <select name="platform" id="platform" class="form-control" required>
+          <option value="" selected disabled>~Choose Below~</option>
+          <option value="PC">PC</option>
+          <option value="Xbox">Xbox</option>
+          <option value="Playstation">Playstation</option>
+          <option value="Mobile">Mobile</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="lookingFor">Amount of people I am looking for</label>
+        <input type="number" name="lookingFor" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="region">Region</label>
+        <select name="region" id="region" class="form-control" required>
+          <option value="" selected disabled>~Choose Below~</option>
+          <option value="Europe">Europe</option>
+          <option value="North America">North America</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="timezone">Timezone</label>
+        <select name="timezone" id="timezone" class="form-control" required>
+          <option value="" selected disabled>~Choose Below~</option>
+          <option value="GMT -9">GMT -9</option>
+          <option value="GMT -8">GMT -8</option>
+          <option value="GMT -7">GMT -7</option>
+          <option value="GMT -6">GMT -6</option>
+          <option value="GMT -5">GMT -5</option>
+          <option value="GMT -4">GMT -4</option>
+          <option value="GMT +0">GMT +0</option>
+          <option value="GMT +1">GMT +1</option>
+          <option value="GMT +2">GMT +2</option>
+          <option value="GMT +3">GMT +3</option>
+        </select>
+      </div>
+        <br /><br />
+     
+      <button type="submit" class="form-control btn btn-primary">Submit</button>
+    </div>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

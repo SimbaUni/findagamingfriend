@@ -1,0 +1,89 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+  <h1>Current Listings:</h1>
+  <br />
+  <p>
+    Welcome
+    <b class="text-success text-capitalize"
+      ><% if (user) { %> <%= user.username %> <% } %></b
+    >
+  </p>
+  <hr />
+  <div class="row">
+    <!-- start of card -->
+ 
+
+    <div class="col-12 col-lg-3 mt-2">
+      <div class="card"> 
+      
+         <a href="/games/leagueoflegends"
+            ><img src="https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-285x380.jpg" alt="uhoh" class="img-thumbnail" width="100%" height="340";
+          /></a>
+
+          <div class="card-header text-bold text-center">
+              <h7><b>League of Legends</b></h7> 
+            <p style="font-size:90%;">0 Currently looking</p> </div>
+</div>
+</div>
+<div class="col-12 col-lg-3 mt-2">
+<div class="card">
+          <a href="/games/destiny2"
+            ><img src="https://static-cdn.jtvnw.net/ttv-boxart/Destiny%202-285x380.jpg" alt="uhoh" class="img-thumbnail" width="100%" height="340";
+          /></a>
+
+          <div class="card-header text-bold text-center">
+            <h7><b>Destiny 2</b></h7> 
+            <p style="font-size:90%;">0 Currently looking</p> </div>
+          </div>
+        </div>
+    
+          <div class="col-12 col-lg-3 mt-2">
+            <div class="card">
+          <a href="/games/pokemongo"
+            ><img src="https://static-cdn.jtvnw.net/ttv-boxart/Pok%C3%A9mon%20GO-285x380.jpg" alt="uhoh" class="img-thumbnail" width="100%" height="340";
+          /></a>
+
+          <div class="card-header text-bold text-center">
+            <h7><b>Pokemon go</b></h7> 
+            <p style="font-size:90%;">0 Currently looking</p> </div>
+          </div>
+</div>
+
+<div class="col-12 col-lg-3 mt-2">
+    <div class="card">
+          <a href="/games/worldofwarcraft"
+            ><img src="https://static-cdn.jtvnw.net/ttv-boxart/World%20of%20Warcraft-285x380.jpg" alt="uhoh" class="img-thumbnail" width="100%" height="340";
+          /></a>
+
+          <div class="card-header text-bold text-center">
+            <h7><b>World of Warcraft</b></h7> 
+            <p style="font-size:90%;">0 Currently looking</p> </div>
+          </div>
+
+    
+      </div>
+      
+      <div class="col-12 col-lg-3 mt-4">
+        <div class="card">
+              <a href="/games/dota2"
+                ><img src="https://static-cdn.jtvnw.net/ttv-boxart/Dota%202-285x380.jpg" alt="uhoh" class="img-thumbnail" width="100%" height="340";
+              /></a>
+    
+              <div class="card-header text-bold text-center">
+                <h7><b>Dota 2</b></h7> 
+                <p style="font-size:90%;">0 Currently looking</p> </div>
+              </div>
+    
+        
+          </div>
+
+   
+
+    <!-- end of card -->
+  </div>
+</div>
+
+
+
+<%- include('partials/footer.ejs') %>

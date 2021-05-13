@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-12 col-md-12 m-auto">
+      <p>
+        Add New Comment
+        <b class="text-capitalize text-primary"> <%= user.username %></b>
+      </p>
+      <form action="/listings/<%=id%>/comments" method="POST">
+        <div class="form-group">
+          <textarea
+            name="text"
+            id="text"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+        <input type="hidden" name="postId" value="<%=id%>" />
+
+        <input type="submit" value="Submit" class="btn btn-primary btn-lg" />
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

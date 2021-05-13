@@ -1,0 +1,92 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+  <h1><% if (listings.length > 0) { %>Current listings for <%= listings[0].gameSelected %>:</h1>
+
+  <% } else{ %>
+
+  <h1>Currently no listings available.</h1>
+
+  <% } %>
+ 
+  <br />
+  <p>
+    Welcome
+    <b class="text-success text-capitalize"
+      ><% if (user) { %> <%= user.username %> <% } %></b
+    >
+  </p>
+  <hr />
+  <div class="card-columns">
+    <!-- start of card -->
+    <% listings.forEach(listing=>{%>
+
+      <% if (listing.platform==='PC') { %> <%=listings.platform %> 
+        <div class="card" style="border-radius: 5%; background-image: url(https://cdn.icon-icons.com/icons2/607/PNG/512/pc-computer-with-monitor_icon-icons.com_56249.png);
+        background-repeat: no-repeat;
+      background-position: top right;
+      background-size: 50px;">
+          <div class="card-body ">
+            <h4 class="card-title" style="min-height: 3rem; max-height: 3rem; max-width:90%"><%= listing.title %></h4>
+            <p class="card-text" style="min-height: 4rem; max-height: 4rem; overflow: hidden;"><%= listing.description %></p>
+            <p class="card-text mb-2 text-muted">See more</p>
+            <a href="/listings/<%= listing._id %> " class="stretched-link"></a>
+          </div>
+        </div>
+
+
+        <% } %>
+        <% if (listing.platform==='Xbox') { %> <%=listings.platform %> 
+          <div class="card" style="border-radius: 5%; background-image: url(https://cdn.icon-icons.com/icons2/1488/PNG/512/5365-xbox_102593.png);
+          background-repeat: no-repeat;
+        background-position: top right;
+        background-size: 50px;">
+            <div class="card-body ">
+              <h4 class="card-title" style="min-height: 3rem; max-height: 3rem; max-width:90%"><%= listing.title %></h4>
+              <p class="card-text" style="min-height: 4rem; max-height: 4rem; overflow: hidden;"><%= listing.description %></p>
+              <p class="card-text mb-2 text-muted">See more</p>
+              <a href="/listings/<%= listing._id %> " class="stretched-link"></a>
+            </div>
+          </div>
+  
+  
+          <% } %>
+          <% if (listing.platform==='Playstation') { %> <%=listings.platform %> 
+            <div class="card" style="border-radius: 5%; background-image: url(https://cdn.icon-icons.com/icons2/844/PNG/512/Playstation_icon-icons.com_67099.png);
+            background-repeat: no-repeat;
+          background-position: top right;
+          background-size: 50px;">
+              <div class="card-body ">
+                <h4 class="card-title" style="min-height: 3rem; max-height: 3rem; max-width:90%"><%= listing.title %></h4>
+                <p class="card-text" style="min-height: 4rem; max-height: 4rem; overflow: hidden;"><%= listing.description %></p>
+                <p class="card-text mb-2 text-muted">See more</p>
+                <a href="/listings/<%= listing._id %> " class="stretched-link"></a>
+              </div>
+            </div>
+    
+    
+            <% } %>
+            <% if (listing.platform==='Mobile') { %> <%=listings.platform %> 
+              <div class="card" style="border-radius: 5%; background-image: url(https://cdn.icon-icons.com/icons2/1129/PNG/512/mobilephone_79875.png);
+              background-repeat: no-repeat;
+            background-position: top right;
+            background-size: 50px;">
+                <div class="card-body ">
+                  <h4 class="card-title" style="min-height: 3rem; max-height: 3rem; max-width:90%"><%= listing.title %></h4>
+                  <p class="card-text" style="min-height: 4rem; max-height: 4rem; overflow: hidden;"><%= listing.description %></p>
+                  <p class="card-text mb-2 text-muted">See more</p>
+                  <a href="/listings/<%= listing._id %> " class="stretched-link"></a>
+                </div>
+              </div>
+      
+      
+              <% } %>
+      
+
+    <% }) %>
+
+    <!-- end of card -->
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
