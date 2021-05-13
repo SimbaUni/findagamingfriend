@@ -1,13 +1,2 @@
 node_modules/
 config.js
-
-<div class="col-12 col-lg-3 mt-2">
-      <div class="card"> 
-        <div class="card-header text-bold text-center"><%= listing.title %></div>
-        <div class="card-body card-img-top">
-         <a href="/listings/<%= listing._id %> "
-            ><img src="https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-285x380.jpg" alt="uhoh" class="img-fluid"
-          /></a>
-        </div>
-      </div>
-    </div>
