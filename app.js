@@ -32,6 +32,8 @@ const listingRoutes = require("./routes/listings");
 const commentRoutes = require("./routes/comments");
 const mainRoutes = require("./routes/main");
 const gamesRoutes = require("./routes/games");
+const usersRoutes = require("./routes/users");
+const messageRoutes = require("./routes/messages");
 
 app.use(express.static("public"));
 app.use(morgan("tiny"));
@@ -85,6 +87,8 @@ app.use("/listings", listingRoutes);
 app.use(commentRoutes);
 app.use(mainRoutes);
 app.use("/games", gamesRoutes);
+app.use(usersRoutes);
+app.use(messageRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

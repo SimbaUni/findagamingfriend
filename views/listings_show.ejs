@@ -18,7 +18,7 @@
             <td><%= listing.date %></td>
           </tr>
           <tr>
-            <th scope="row">Looking for:</th>
+            <th scope="row">Looking for</th>
             <td><%= listing.lookingFor %> players</td>
           </tr>
           <tr>
@@ -41,9 +41,22 @@
             <th scope="row">Genre</th>
             <td><%= listing.genre %></td>
           </tr>
+          <tr>
+            <th scope="row">Posted by</th>
+            <td><%= listing.owner.username %></td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="/profile/<%= listing.owner.id %>">
+              <button class="btn btn-outline-info btn-lg btn-block mb-2">View profile</button>
+            </a></th>
+            <td><a href="/message/<%= listing.owner.id %>">
+              <button class="btn btn-outline-info btn-lg btn-block mb-2">Message</button>
+            </a></td>
+          </tr>
         </tbody>
+        
       </table>
-      <%if(user.username===listing.owner.username){%>
+      <%if(user.username===listing.owner.username || user.role==="Admin"){%>
       <a href="/listings/<%= listing.id %>/edit ">
         <button class="btn btn-outline-info btn-lg btn-block mb-2">Edit</button>
       </a>
@@ -67,13 +80,13 @@
   <div class="row show-comment-container py-2 border">
     <div class="col-2 col-xs-12 border-right my-auto">
       <b class="text-primary my-auto text-capitalize"
-        ><%=comment.user.username%>
-      </b>
+        ><a href="/profile/<%= comment.user.id %>"><%=comment.user.username%>
+      </b></a>
     </div>
     <div
       class="col-2 border-right my-auto d-flex flex-wrap justify-content-center"
     >
-      <%if(user.username===comment.user.username){%>
+      <%if(user.username===comment.user.username || user.role==="Admin"){%>
       <a
         href="/listings/<%= listing._id %>/comments/<%= comment.id %>/edit "
         class="btn btn-sm btn-success w-75 p-0 my-1"

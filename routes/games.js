@@ -4,9 +4,14 @@ const passport = require("passport");
 const Listing = require("../models/listing");
 const isLoggedIn = require("../utils/isLoggedIn");
 
-router.get("/", (req, res) => {
-    res.render("games");
-  });
+router.get("/", async (req, res) => {  
+  try {
+    const listings = await Listing.find().exec();
+    res.render("games", { listings });
+  } catch (error) {
+    console.log(error);
+  }
+});
   
 router.get("/leagueoflegends", isLoggedIn, async (req, res) => {  
   try {
@@ -52,5 +57,6 @@ router.get("/dota2", isLoggedIn, async (req, res) => {
     console.log(error);
   }
 });
-  
+
+
 module.exports = router;

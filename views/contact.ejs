@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+
+<div class="container">
+  <div class="col-auto">
+    <h1>Message Support
+    </h1>
+
+    <form action="/contact" method="POST">
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select name="category" id="category" class="form-control" required>
+              <option value="" selected disabled>~Choose Below~</option>
+              <option value="Game Suggestion">Game Suggestion</option>
+              <option value="Report Offensive Language">Report Offensive Language</option>
+              <option value="Report Bug">Report Bug</option>
+              <option value="Report Illegal Activity">Report Illegal Activity</option>
+            </select>
+          </div>
+
+      <div class="form-group">
+        <label for="message">Message (Maximum 300 Words)</label>
+        <textarea class="form-control" name="message" rows="3" value=""></textarea>
+      </div>
+    
+      <button type="submit" class="btn btn-danger" style="float: right;">Update</button>
+
+    </form>
+    
+  </div>
+</div>
+
+
+
+
+<%- include('partials/footer') %> 

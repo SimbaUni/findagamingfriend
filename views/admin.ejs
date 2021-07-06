@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+  <h1>Admin</h1>
+  <br />
+  <p>
+    Welcome
+    <b class="text-success text-capitalize"
+      ><% if (user) { %> <%= user.username %> <% } %></b
+    >
+    
+  </p>
+  <hr />
+  
+  
+  <div class="card-columns">
+    <!-- start of card -->
+    <% contact.forEach(contact=>{%>
+    
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title" style="min-height: 3rem; max-height: 3rem; max-width:90%"><%= contact.owner.username %></h4>
+            <h6 class="card-subtitle mb-2 text-muted"><%= contact.category %></h6>
+            <p class="card-text" style="min-height: 4rem; max-height: 4rem; overflow: hidden;"><%= contact.message %></p>
+            <p class="card-text mb-2 text-muted">Reply</p>
+            <a href="/profile/<%= user._id %> " class="stretched-link"></a>
+          </div>
+        </div>   
+      
+    <% }) %>
+
+    <!-- end of card -->
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

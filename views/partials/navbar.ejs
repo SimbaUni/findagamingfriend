@@ -1,18 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/listings">Listings</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
+  <a class="navbar-brand" href="/listings"> <img src="https://i.ibb.co/FJ4GS8z/gamepad-39511.png" width="30" height="30" alt="Logo"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02" >
     <ul class="navbar-nav mr-auto">
       <% if (user) { %>
       <li class="nav-item active">
@@ -21,6 +13,12 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/listings/new">Add Listing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profilesearch">Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
       </li>
       <li class="nav-item dropdown">
         <a
@@ -49,13 +47,25 @@
           <a class="dropdown-item" href="/listings/genre/Sport">Sport</a>
           <a class="dropdown-item" href="/listings/genre/Strategy">Strategy</a>
         </div>
+        <% if (user.role==="Admin") { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/contactAdmin">Admin</a>
+          </li>
+        <% } %>
+      </ul>
+     
+        <ul class="navbar-nav ml-auto">
+          
+          <li class="nav-item">
+            <a href="/profile/<%= user._id %>"><img src="<%= user.avatar %>" alt="??" class="img-thumbnail" style="height: 50px; width: 50px;" /></a>
+          </li>
       <li class="nav-item">
         <a class="nav-link text-danger" href="/logout"
           >Log Out
           <b class="text-primary text-capitalize"><%= user.username %></b>
         </a>
       </li>
-
+  
 
       <% } else{%>
 

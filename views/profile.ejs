@@ -1,0 +1,49 @@
+<%-include('partials/header') %>
+
+ <div class="container">
+   <div class="row mt-4">
+     <div class="col-lg-6 col-12 show-image-container">
+       <img src="<%= profile.avatar %>" alt="??" class="img-fluid" />
+     </div>
+     
+ 
+     <div class="col-lg-6 show-details-container col-12">
+       <h1><%= profile.username %></h1>
+ 
+       <p><%= profile.bio %></p>
+ 
+      <table class="table">
+         <tbody>
+           <tr>
+            <th scope="row">Pronouns</th>
+            <td><%= profile.pronouns %></td>
+          </tr>
+          <tr>
+            <th scope="row">Role</th>
+            <td><%= profile.role %></td>
+          </tr>
+          
+       
+       <%if(user.username===profile.username || user.role==="Admin"){%>
+        <tr>
+          <th scope="row"><a href="/profile/<%= profile._id %>/edit">
+            <button class="btn btn-outline-info btn-lg btn-block mb-2">Edit profile</button>
+          </a></th>
+
+          <% } %>
+          <td><a href="">
+            <button class="btn btn-outline-info btn-lg btn-block mb-2">Message</button>
+          </a></td>
+        </tr>
+      </tbody>
+    </table>
+ 
+    
+     
+ </div>
+ </div>
+ </div>
+
+ 
+ <%-include('partials/footer') %>
+ 
