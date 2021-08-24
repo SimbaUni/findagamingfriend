@@ -1,49 +1,70 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 <%-include('partials/header') %>
+<div class="container emp-profile" style="background: white;">
+    <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="<%= profile.avatar %>" alt="" style="height: 250px; width: 250px;"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        <%= profile.username.charAt(0).toUpperCase() + profile.username.slice(1) %>
+                                    </h5>
+                                    <h6>
+                                       <%= profile.pronouns.charAt(0).toUpperCase() + profile.pronouns.slice(1) %>
+                                    </h6>
+                                    <h6>
+                                        <%= profile.role %>
+                                    </h6>
+                                    
+                                    <br>
+                         
+                        </div>
+                    </div>
+                    <%if(user.username===profile.username || user.role==="Admin"){%>
+                    <div class="col-md-2"><a href="/profile/<%= profile._id %>/edit">
+                        <button class="btn btn-outline-info btn-block">Edit profile</button></a>
+                    </div>
+                    <% } %>
 
- <div class="container">
-   <div class="row mt-4">
-     <div class="col-lg-6 col-12 show-image-container">
-       <img src="<%= profile.avatar %>" alt="??" class="img-fluid" />
-     </div>
-     
- 
-     <div class="col-lg-6 show-details-container col-12">
-       <h1><%= profile.username %></h1>
- 
-       <p><%= profile.bio %></p>
- 
-      <table class="table">
-         <tbody>
-           <tr>
-            <th scope="row">Pronouns</th>
-            <td><%= profile.pronouns %></td>
-          </tr>
-          <tr>
-            <th scope="row">Role</th>
-            <td><%= profile.role %></td>
-          </tr>
-          
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <br><%if(user.username!==profile.username || user.role==="Admin"){%>
+                        <div class="profile-work" style="width: 200px; height: 200px;">
+                            <a href="/profile/<%= profile._id %>/message">
+                                <button class="btn btn-outline-info btn-block">Message</button></a>
+                            
+                        </div>
+                        <% } %>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6"><%= profile.bio %>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Forum Activity:</label>
+                                            </div>
+                            </div>                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <br><br>  
+
+        </div>
        
-       <%if(user.username===profile.username || user.role==="Admin"){%>
-        <tr>
-          <th scope="row"><a href="/profile/<%= profile._id %>/edit">
-            <button class="btn btn-outline-info btn-lg btn-block mb-2">Edit profile</button>
-          </a></th>
-
-          <% } %>
-          <td><a href="">
-            <button class="btn btn-outline-info btn-lg btn-block mb-2">Message</button>
-          </a></td>
-        </tr>
-      </tbody>
-    </table>
- 
-    
-     
- </div>
- </div>
- </div>
-
- 
- <%-include('partials/footer') %>
- 
+<%-include('partials/footer') %>

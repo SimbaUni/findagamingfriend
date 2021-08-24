@@ -8,20 +8,18 @@
     <form action="/profile/<%= user._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
       <div class="form-group">
         <label for="pronouns">Pronouns</label>
-        <input type="text" name="pronouns" value="<%= user.pronouns %> " class="form-control" />
+        <input type="text" name="pronouns" value="<%= users.pronouns %>" class="form-control" />
       </div>
 
       <div class="form-group">
         <label for="bio">Bio (Maximum 300 Words)</label>
-        <textarea class="form-control" name="bio" rows="3" value="<%= user.bio %>"></textarea>
+        <textarea class="form-control" name="bio" rows="3" value="<%= users.bio %>"><%= users.bio %></textarea>
       </div>
     
-
-      
       <div class="form-group">
         <label for="avatar">Change avatar?</label><br>
-        <img src="<%= user.avatar %>" alt="??" name="current" class="img-fluid" style="max-height: 150px; max-width: 150px;" /><br><br>
-        <input type='file' class="form-control-file" name='image' value="<%= user.avatar %>" />
+        <img src="<%= users.avatar %>" alt="??" name="current" class="img-fluid" style="max-height: 150px; max-width: 150px;" /><br><br>
+        <input type='file' class="form-control-file" name='image' value="<%= users.avatar %>" />
       </div>
 
       <button type="submit" class="btn btn-danger" style="float: right;">Update</button>

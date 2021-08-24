@@ -1,12 +1,33 @@
 <%-include('partials/header') %>
 <div class="container">
   <div class="row mt-4">
+    <% if (listing.gameSelected==='Destiny 2') {%>
     <div class="col-lg-6 col-12 show-image-container">
-      <img src="https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-285x380.jpg" alt="??" class="img-fluid" />
+      <img src="https://static-cdn.jtvnw.net/ttv-boxart/Destiny%202-285x380.jpg" alt="??" class="img-fluid" style="height: 650px; width: 450px;" />
     </div>
-    
+    <% } %>
+    <% if (listing.gameSelected==='League of Legends') {%>
+      <div class="col-lg-6 col-12 show-image-container">
+        <img src="https://static-cdn.jtvnw.net/ttv-boxart/League%20of%20Legends-285x380.jpg" alt="??" class="img-fluid" style="height: 650px; width: 450px;" />
+      </div>
+      <% } %>
+      <% if (listing.gameSelected==='Pokemon go') {%>
+        <div class="col-lg-6 col-12 show-image-container">
+          <img src="https://static-cdn.jtvnw.net/ttv-boxart/Pok%C3%A9mon%20GO-285x380.jpg" alt="??" class="img-fluid" style="height: 650px; width: 450px;"/>
+        </div>
+        <% } %>
+        <% if (listing.gameSelected==='World of Warcraft') {%>
+          <div class="col-lg-6 col-12 show-image-container">
+            <img src="https://static-cdn.jtvnw.net/ttv-boxart/World%20of%20Warcraft-285x380.jpg" alt="??" class="img-fluid" style="height: 650px; width: 450px;"/>
+          </div>
+          <% } %>
+          <% if (listing.gameSelected==='Dota 2') {%>
+            <div class="col-lg-6 col-12 show-image-container">
+              <img src="https://static-cdn.jtvnw.net/ttv-boxart/Dota%202-285x380.jpg" alt="??" class="img-fluid" style="height: 650px; width: 450px;"/>
+            </div>
+            <% } %>
 
-    <div class="col-lg-6 show-details-container col-12">
+    <div class="col-lg-6 show-details-container col-12 "style="background-color:rgb(247, 247, 247);">
       <h1><%= listing.title %></h1>
 
       <p><%= listing.description %></p>
@@ -43,15 +64,21 @@
           </tr>
           <tr>
             <th scope="row">Posted by</th>
-            <td><%= listing.owner.username %></td>
+            <td><%= listing.owner.username.charAt(0).toUpperCase() + listing.owner.username.slice(1) %></td>
+           
           </tr>
+          <%if(user.username!==listing.owner.username){%>
           <tr>
             <th scope="row"><a href="/profile/<%= listing.owner.id %>">
               <button class="btn btn-outline-info btn-lg btn-block mb-2">View profile</button>
             </a></th>
-            <td><a href="/message/<%= listing.owner.id %>">
+            
+            <td>   
+              <a href="/profile/<%= listing.owner.id %>/message">
               <button class="btn btn-outline-info btn-lg btn-block mb-2">Message</button>
-            </a></td>
+            </a>
+          </td>
+          <% } %>
           </tr>
         </tbody>
         
@@ -77,7 +104,7 @@
     >
   </div>
   <% comments.forEach(comment=>{%>
-  <div class="row show-comment-container py-2 border">
+  <div class="row show-comment-container py-2 border" style="background-color: rgb(247, 247, 247);">
     <div class="col-2 col-xs-12 border-right my-auto">
       <b class="text-primary my-auto text-capitalize"
         ><a href="/profile/<%= comment.user.id %>"><%=comment.user.username%>

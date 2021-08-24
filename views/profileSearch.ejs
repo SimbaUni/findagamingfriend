@@ -36,8 +36,8 @@
         <div class="card">
           <div class="card-body">
             <img src="<%= user.avatar %>" alt="??" name="current" class="img-fluid" style="height: 150px; width: 150px;" />
-            <h4 class="card-title" style="min-height: 3rem; max-height: 3rem; max-width:90%"><%= user.username %></h4>
-            <h6 class="card-subtitle mb-2 text-muted"><%= user.pronouns %></h6>
+            <h4 class="card-title" style="min-height: 3rem; max-height: 3rem; max-width:90%"><%= user.username.charAt(0).toUpperCase() + user.username.slice(1) %></h4>
+            <h6 class="card-subtitle mb-2 text-muted"><%= user.pronouns.charAt(0).toUpperCase() + user.pronouns.slice(1) %></h6>
             <p class="card-text" style="min-height: 4rem; max-height: 4rem; overflow: hidden;"><%= user.bio %></p>
             <p class="card-text mb-2 text-muted">See more</p>
             <a href="/profile/<%= user._id %> " class="stretched-link"></a>

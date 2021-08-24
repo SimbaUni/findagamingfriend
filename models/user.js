@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
   pronouns: {
     type: String,
     required: true,
-    default: 'he/him/his'
+    default: 'he/him'
   },
   avatar: {
     type: String,

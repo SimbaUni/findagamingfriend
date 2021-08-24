@@ -27,10 +27,10 @@ router.get("/profile/:id", isLoggedIn, async (req, res) => {
 });
 
 router.get("/profile/:id/edit", checkProfileOwner, async (req, res) => {
-  const user = await User.findById(req.params.id).exec();
+  const users = await User.findById(req.params.id).exec();
 
 
-  res.render("account", { user });
+  res.render("account", { users });
 });
 
 cloudinary.config({

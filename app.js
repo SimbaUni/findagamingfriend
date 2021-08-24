@@ -33,7 +33,7 @@ const commentRoutes = require("./routes/comments");
 const mainRoutes = require("./routes/main");
 const gamesRoutes = require("./routes/games");
 const usersRoutes = require("./routes/users");
-const messageRoutes = require("./routes/messages");
+const messageRoutes = require("./routes/message");
 
 app.use(express.static("public"));
 app.use(morgan("tiny"));
