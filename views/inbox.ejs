@@ -1,0 +1,64 @@
+<%- include('partials/header.ejs') %>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<div class="container">
+<section class="content inbox">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card action_bar">
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-lg-1 col-md-2 col-3">
+                                                          
+                            </div>
+                                                                        
+                        </div>
+                    </div>
+                </div>
+            </div>           
+        </div>        
+        <div class="row clearfix">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+                <ul class="mail_list list-group list-unstyled">
+                    <li class="list-group-item">
+                        
+                                                        
+                                <div class="controls">
+                                    
+                                        <% conversation.forEach(conversation=>{ %>  
+                                            <% if (conversation.recipients.includes(user._id)) {%>
+                                                
+                        
+                            <% (conversation.recipients.remove(user._id)) %>
+                            <% profile.forEach(profile =>{ %>
+                                <% if (conversation.recipients.includes(profile._id)) {%>
+                                
+                                
+                            <div class="media-body">
+                                <div class="media-heading">
+                                    <a href="/profile/<%= profile._id %>"><img src="<%= profile.avatar %>" alt="??" class="img-thumbnail" style="height: 50px; width: 50px;" /></a>
+                                    <a href="/inbox/conversation/<%= conversation._id %>" class="m-r-10">Conversation with <%= profile.username.charAt(0).toUpperCase() + profile.username.slice(1) %> 
+                                    </a>
+                                    <small class="float-right text-muted"><time class="hidden-sm-down" datetime="2017"><%=conversation.timestamp%></time> </small>
+                                </div>
+                                <p class="msg"><%= conversation.text %> </p>
+                            </div>
+                           
+
+                            
+                                
+                            <% } %>
+                            <% }) %>
+                            <% } %>
+                            <% }) %>
+                        </div>
+                    
+                   
+                   
+                    </li>
+                    </ul>
+            </div>
+</section>
+ </div>
+ <%- include('partials/footer.ejs') %>
